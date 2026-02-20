@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ipma_protocolo_user,ipma_protocolo.ipma.protocolo,model_ipma_protocolo,base.group_user,1,1,1,1
+access_ipma_import_protocolos_wizard_user,ipma_protocolo.ipma.import.protocolos.wizard,model_ipma_import_protocolos_wizard,base.group_user,1,1,1,1

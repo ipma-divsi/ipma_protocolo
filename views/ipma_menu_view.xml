@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Actions -->
+    <record id="action_protocolo" model="ir.actions.act_window">
+        <field name="name">Protocolos</field>
+        <field name="res_model">ipma.protocolo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Criar o primeiro protocolo
+            </p>
+        </field>
+    </record>
+
+    <!-- Root Menu (Application) -->
+    <menuitem id="menu_protocolo_root"
+              name="Protocolos"
+              sequence="10"/>
+
+    <!-- Main Menus -->
+    <menuitem id="menu_protocolo_main"
+              name="Protocolos"
+              parent="menu_protocolo_root"
+              sequence="10"/>
+
+    <menuitem id="menu_protocolo"
+              name="Todos os Protocolos"
+              parent="menu_protocolo_main"
+              action="action_protocolo"
+              sequence="10"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_protocolo_config"
+              name="Configuração"
+              parent="menu_protocolo_root"
+              sequence="100"/>
+</odoo>
