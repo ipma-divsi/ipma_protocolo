@@ -69,7 +69,8 @@
         <field name="name">protocolo.tree</field>
         <field name="model">ipma.protocolo</field>
         <field name="arch" type="xml">
-            <tree string="Protocolos">
+            <tree string="Protocolos" decoration-danger="vigencia_prestes_expirar">
+                <field name="vigencia_prestes_expirar" invisible="1"/>
                 <field name="siged" />
                 <field name="tipo_documento" />
                 <field name="ambito_geografico" />
@@ -134,7 +135,10 @@
                         domain="[('entrada_vigor', '&lt;=', context_today().strftime('%Y-%m-%d')),
                                  '|', ('data_vigencia', '=', False), ('data_vigencia', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
                 <filter string="Vigência Expirada" name="filter_vigencia_expirada" 
-                        domain="[('data_vigencia', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    domain="[('data_vigencia', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Vigência a Expirar (1 mês)" name="filter_vigencia_a_expirar" 
+                    domain="[('data_vigencia', '&gt;=', context_today().strftime('%Y-%m-%d')),
+                         ('data_vigencia', '&lt;=', (context_today() + relativedelta(months=1)).strftime('%Y-%m-%d'))]"/>
                 
                 <!-- Group By -->
                 <group expand="0" string="Agrupar Por">

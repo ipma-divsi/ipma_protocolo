@@ -1,3 +1,5 @@
+from dateutil.relativedelta import relativedelta
+
 from odoo import models, fields, api
 from odoo.exceptions import UserError
 
@@ -31,3 +33,17 @@ class Protocolo(models.Model):
     numero_documento_relacionado = fields.Char(string='N.º Documento Relacionado')
     ativo = fields.Boolean(string='Ativo', default=True)
     observacoes = fields.Text(string='Observações')
+    vigencia_prestes_expirar = fields.Boolean(
+        string='Vigência a expirar',
+        compute='_compute_vigencia_prestes_expirar',
+    )
+
+    @api.depends('data_vigencia')
+    def _compute_vigencia_prestes_expirar(self):
+        today = fields.Date.context_today(self)
+        limite = today + relativedelta(months=1)
+        for record in self:
+            if record.data_vigencia:
+                record.vigencia_prestes_expirar = today <= record.data_vigencia <= limite
+            else:
+                record.vigencia_prestes_expirar = False
