@@ -7,33 +7,59 @@
             <form string="Protocolo">
                 <sheet>
                     <group>
-                        <field name="siged"/>
-                        <field name="tipo_documento"/>
-                        <field name="ambito_geografico"/>
-                        <field name="entidades_signatarias"/>
-                        <field name="classificacao_entidades"/>
-                        <field name="designacao_documento"/>
-                        <field name="sigla"/>
-                        <field name="ambito_objeto"/>
-                        <field name="data_assinatura"/>
-                        <field name="entrada_vigor"/>
-                        <field name="data_vigencia"/>
-                        <field name="periodo_vigencia"/>
-                        <field name="antecedencia_revisao_denuncia"/>
-                        <field name="obrigacoes_financeiras"/>
-                        <field name="valor"/>
-                        <field name="ponto_focal_ipma_nome"/>
-                        <field name="ponto_focal_ipma_uo"/>
-                        <field name="ponto_focal_ipma_tlf"/>
-                        <field name="ponto_focal_ipma_email"/>
-                        <field name="ponto_focal_parceiros_nome"/>
-                        <field name="ponto_focal_parceiros_tlf"/>
-                        <field name="ponto_focal_parceiros_email"/>
-                        <field name="outros_protocolos_mesmas_entidades"/>
-                        <field name="numero_documento_relacionado"/>
-                        <field name="ativo"/>
-                        <field name="observacoes"/>
+                        <group>
+                            <field name="siged" />
+                            <field name="tipo_documento" />
+                            <field name="ambito_geografico" />
+                            <field name="entidades_signatarias" />
+                            <field name="classificacao_entidades" />
+                            <field name="designacao_documento" />
+                            <field name="sigla" />
+                            <field name="numero_documento_relacionado" />
+                            <field name="ativo" />
+                            <field name="observacoes" />
+                        </group>
+                        <group>
+
+                            <field name="data_assinatura" />
+                            <field name="entrada_vigor" />
+                            <field name="data_vigencia" />
+                            <field name="periodo_vigencia" />
+                        </group>
+                        <group>
+                            <field name="antecedencia_revisao_denuncia" />
+                            <field name="obrigacoes_financeiras" />
+                            <field name="valor" />
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Âmbito e Objeto">
+                            <group>
+                                <field name="ambito_objeto" />
+                            </group>
+                        </page>
+                        <page string="Ponto Focal IPMA">
+                            <group>
+                                <field name="ponto_focal_ipma_nome" />
+                                <field name="ponto_focal_ipma_uo" />
+                                <field name="ponto_focal_ipma_tlf" />
+                                <field name="ponto_focal_ipma_email" />
+                            </group>
+                        </page>
+                        <page string="Ponto Focal Parceiros">
+                            <group>
+                                <field name="ponto_focal_parceiros_nome" />
+                                <field name="ponto_focal_parceiros_tlf" />
+                                <field name="ponto_focal_parceiros_email" />
+                            </group>
+                        </page>
+                        <page string="Outros Protocolos Mesmas Entidades">
+                            <group>
+                                <field name="outros_protocolos_mesmas_entidades" />
+                            </group>
+                        </page>
+                    </notebook>
+
                 </sheet>
             </form>
         </field>
@@ -44,37 +70,86 @@
         <field name="model">ipma.protocolo</field>
         <field name="arch" type="xml">
             <tree string="Protocolos">
-                <field name="siged"/>
-                <field name="tipo_documento"/>
-                <field name="ambito_geografico"/>
-                <field name="entidades_signatarias"/>
-                <field name="classificacao_entidades"/>
-                <field name="designacao_documento"/>
-                <field name="sigla"/>
-                <field name="ambito_objeto"/>
-                <field name="data_assinatura"/>
-                <field name="entrada_vigor"/>
-                <field name="data_vigencia"/>
-                <field name="periodo_vigencia"/>
-                <field name="antecedencia_revisao_denuncia"/>
-                <field name="obrigacoes_financeiras"/>
-                <field name="valor"/>
-                <field name="ponto_focal_ipma_nome"/>
-                <field name="ponto_focal_ipma_uo"/>
-                <field name="ponto_focal_ipma_tlf"/>
-                <field name="ponto_focal_ipma_email"/>
-                <field name="ponto_focal_parceiros_nome"/>
-                <field name="ponto_focal_parceiros_tlf"/>
-                <field name="ponto_focal_parceiros_email"/>
-                <field name="outros_protocolos_mesmas_entidades"/>
-                <field name="numero_documento_relacionado"/>
-                <field name="ativo"/>
-                <field name="observacoes"/>
+                <field name="siged" />
+                <field name="tipo_documento" />
+                <field name="ambito_geografico" />
+                <field name="entidades_signatarias" />
+                <field name="classificacao_entidades" />
+                <field name="designacao_documento" />
+                <field name="sigla" />
+                <!-- <field name="ambito_objeto"/> -->
+                <field name="data_assinatura" />
+                <field name="entrada_vigor" />
+                <field name="data_vigencia" />
+                <field name="periodo_vigencia" />
+                <field name="antecedencia_revisao_denuncia" />
+                <field name="obrigacoes_financeiras" />
+                <field name="valor" />
+                <field name="ponto_focal_ipma_nome" />
+                <field name="ponto_focal_ipma_uo" />
+                <field name="ponto_focal_ipma_tlf" />
+                <field name="ponto_focal_ipma_email" />
+                <field name="ponto_focal_parceiros_nome" />
+                <field name="ponto_focal_parceiros_tlf" />
+                <field name="ponto_focal_parceiros_email" />
+                <field name="outros_protocolos_mesmas_entidades" />
+                <field name="numero_documento_relacionado" />
+                <field name="ativo" />
+                <field name="observacoes" />
             </tree>
         </field>
     </record>
 
-    <menuitem id="menu_protocolo_root" name="Protocolo"/>
-    <menuitem id="menu_protocolo" name="Protocolos" parent="menu_protocolo_root"/>
-    <act_window id="action_protocolo" name="Protocolos" res_model="ipma.protocolo" view_mode="tree,form" menu_id="menu_protocolo"/>
+    <record id="view_protocolo_search" model="ir.ui.view">
+        <field name="name">protocolo.search</field>
+        <field name="model">ipma.protocolo</field>
+        <field name="arch" type="xml">
+            <search string="Protocolos">
+                <!-- Search fields -->
+                <field name="siged" filter_domain="[('siged', 'ilike', self)]"/>
+                <field name="designacao_documento" filter_domain="[('designacao_documento', 'ilike', self)]"/>
+                <field name="sigla" filter_domain="[('sigla', 'ilike', self)]"/>
+                <field name="entidades_signatarias" filter_domain="[('entidades_signatarias', 'ilike', self)]"/>
+                <field name="tipo_documento" filter_domain="[('tipo_documento', 'ilike', self)]"/>
+                <field name="ambito_geografico" filter_domain="[('ambito_geografico', 'ilike', self)]"/>
+                <field name="ponto_focal_ipma_nome" filter_domain="[('ponto_focal_ipma_nome', 'ilike', self)]"/>
+                <field name="ponto_focal_parceiros_nome" filter_domain="[('ponto_focal_parceiros_nome', 'ilike', self)]"/>
+                
+                <!-- Filters -->
+                <separator/>
+                <filter string="Ativos" name="filter_ativo" domain="[('ativo', '=', True)]"/>
+                <filter string="Inativos" name="filter_inativo" domain="[('ativo', '=', False)]"/>
+                <separator/>
+                <filter string="Com Obrigações Financeiras" name="filter_obrigacoes" domain="[('obrigacoes_financeiras', '!=', False)]"/>
+                <filter string="Com Valor" name="filter_valor" domain="[('valor', '>', 0)]"/>
+                <separator/>
+                <filter string="Assinados Este Mês" name="filter_mes_corrente" 
+                        domain="[('data_assinatura', '&gt;=', (context_today() - relativedelta(day=1)).strftime('%Y-%m-%d')),
+                                 ('data_assinatura', '&lt;=', (context_today() + relativedelta(day=31)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Assinados Este Ano" name="filter_ano_corrente" 
+                        domain="[('data_assinatura', '&gt;=', (context_today() - relativedelta(month=1, day=1)).strftime('%Y-%m-%d')),
+                                 ('data_assinatura', '&lt;=', (context_today() + relativedelta(month=12, day=31)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Em Vigor" name="filter_em_vigor" 
+                        domain="[('entrada_vigor', '&lt;=', context_today().strftime('%Y-%m-%d')),
+                                 '|', ('data_vigencia', '=', False), ('data_vigencia', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Vigência Expirada" name="filter_vigencia_expirada" 
+                        domain="[('data_vigencia', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                
+                <!-- Group By -->
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Tipo de Documento" name="group_tipo_documento" context="{'group_by': 'tipo_documento'}"/>
+                    <filter string="Âmbito Geográfico" name="group_ambito_geografico" context="{'group_by': 'ambito_geografico'}"/>
+                    <filter string="Classificação Entidades" name="group_classificacao" context="{'group_by': 'classificacao_entidades'}"/>
+                    <filter string="Entidades Signatárias" name="group_entidades" context="{'group_by': 'entidades_signatarias'}"/>
+                    <separator/>
+                    <filter string="Data de Assinatura" name="group_data_assinatura" context="{'group_by': 'data_assinatura'}"/>
+                    <filter string="Entrada em Vigor" name="group_entrada_vigor" context="{'group_by': 'entrada_vigor'}"/>
+                    <filter string="Status (Ativo)" name="group_ativo" context="{'group_by': 'ativo'}"/>
+                    <separator/>
+                    <filter string="UO do Ponto Focal IPMA" name="group_ponto_focal_uo" context="{'group_by': 'ponto_focal_ipma_uo'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 </odoo>

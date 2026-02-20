@@ -26,7 +26,7 @@
         # 'data/report_paperformat.xml',
         
         # Views
-        'views/ipma_protocoos_views.xml',
+        'views/ipma_protocolos_views.xml',
         'views/ipma_menu_view.xml',
         
         # Wizards
