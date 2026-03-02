@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- ============================================================== -->
+        <!-- GRUPO 1: Utilizadores LDAP (Nova autenticação) - Read Only     -->
+        <!-- ============================================================== -->
+        <record id="group_ldap_readonly" model="res.groups">
+            <field name="name">LDAP - Leitura (Read-Only)</field>
+            <field name="comment">Grupo automático para novos utilizadores LDAP na primeira autenticação. Apenas leitura.</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Permissões Read-Only para ipma_protocolo -->
+        <record id="access_ipma_protocolo_ldap_readonly" model="ir.model.access">
+            <field name="name">ipma_protocolo - LDAP Read Only</field>
+            <field name="model_id" ref="model_ipma_protocolo"/>
+            <field name="group_id" ref="group_ldap_readonly"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">0</field>
+            <field name="perm_create">0</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+        
+        <!-- ============================================================== -->
+        <!-- GRUPO 2: Gestor de Protocolos - Full Access (CRUD)             -->
+        <!-- ============================================================== -->
+        <record id="group_protocolo_manager" model="res.groups">
+            <field name="name">Gestor de Protocolos - Full Access</field>
+            <field name="comment">Acesso completo ao módulo ipma_protocolo: Criar, Ler, Editar, Apagar.</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Permissões Full Access para ipma_protocolo -->
+        <record id="access_ipma_protocolo_manager" model="ir.model.access">
+            <field name="name">ipma_protocolo - Manager Full Access</field>
+            <field name="model_id" ref="model_ipma_protocolo"/>
+            <field name="group_id" ref="group_protocolo_manager"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+
+        
+        <!-- ============================================================== -->
+        <!-- GRUPO 3: Utilizador Normal - Read Only                         -->
+        <!-- ============================================================== -->
+        <record id="group_protocolo_user" model="res.groups">
+            <field name="name">Utilizador Normal - Protocolo Leitura</field>
+            <field name="comment">Utilizador normal com acesso apenas leitura ao módulo ipma_protocolo.</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Permissões Read-Only para ipma_protocolo (user normal) -->
+        <record id="access_ipma_protocolo_user_readonly" model="ir.model.access">
+            <field name="name">ipma_protocolo - User Read Only</field>
+            <field name="model_id" ref="model_ipma_protocolo"/>
+            <field name="group_id" ref="group_protocolo_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">0</field>
+            <field name="perm_create">0</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+    </data>
+</odoo>

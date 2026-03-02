@@ -19,6 +19,7 @@
         'security/ir.model.access.csv',
         
         # Data
+        'data/groups.xml',
         # 'data/sequences.xml',
         # 'data/equipment_categories.xml',
         # 'data/mail_templates.xml',  
