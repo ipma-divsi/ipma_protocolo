@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'IPMA Protocolos',
-    'version': '17.0.1.0.0',
+    'version': '17.0.1.1.0',
     'category': 'Protocolos',
     'summary': '',
     'description': '''
@@ -13,6 +13,7 @@
     'license': 'LGPL-3',
     'depends': [
         'base',
+        'auth_ldap',
     ],
     'data': [
         # Security
