@@ -24,6 +24,8 @@
 
         # Views
         'views/ipma_protocolos_views.xml',
+        'views/ipma_ata_views.xml',
+        'views/ipma_addendum_views.xml',
         'views/ipma_menu_view.xml',
         
         # Wizards

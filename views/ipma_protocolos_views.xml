@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- ================== FORM ====================-->
     <record id="view_protocolo_form" model="ir.ui.view">
         <field name="name">protocolo.form</field>
         <field name="model">ipma.protocolo</field>
@@ -58,6 +59,21 @@
                                 <field name="outros_protocolos_mesmas_entidades" />
                             </group>
                         </page>
+                        <page string="Adendas">
+                            <group>
+                                <field name="addendum_ids" widget="many2many_tags"/>
+                            </group>
+                        </page>
+                        <page string="Atas">
+                            <group>
+                                <field name="ata_ids" />
+                            </group>
+                        </page>
+                        <page string="Anexos">
+                            <group>
+                                <!-- <field name="anexo_ids" /> -->
+                            </group>
+                        </page>
                     </notebook>
 
                 </sheet>
@@ -65,20 +81,20 @@
         </field>
     </record>
 
+    <!-- ================== TREE ====================-->
     <record id="view_protocolo_tree" model="ir.ui.view">
         <field name="name">protocolo.tree</field>
         <field name="model">ipma.protocolo</field>
         <field name="arch" type="xml">
             <tree string="Protocolos" decoration-danger="vigencia_prestes_expirar">
-                <field name="vigencia_prestes_expirar" invisible="1"/>
                 <field name="siged" />
+                <field name="vigencia_prestes_expirar" column_invisible="1"/>
                 <field name="tipo_documento" />
                 <field name="ambito_geografico" />
                 <field name="entidades_signatarias" />
                 <field name="classificacao_entidades" />
                 <field name="designacao_documento" />
                 <field name="sigla" />
-                <!-- <field name="ambito_objeto"/> -->
                 <field name="data_assinatura" />
                 <field name="entrada_vigor" />
                 <field name="data_vigencia" />
@@ -86,13 +102,6 @@
                 <field name="antecedencia_revisao_denuncia" />
                 <field name="obrigacoes_financeiras" />
                 <field name="valor" />
-                <field name="ponto_focal_ipma_nome" />
-                <field name="ponto_focal_ipma_uo" />
-                <field name="ponto_focal_ipma_tlf" />
-                <field name="ponto_focal_ipma_email" />
-                <field name="ponto_focal_parceiros_nome" />
-                <field name="ponto_focal_parceiros_tlf" />
-                <field name="ponto_focal_parceiros_email" />
                 <field name="outros_protocolos_mesmas_entidades" />
                 <field name="numero_documento_relacionado" />
                 <field name="ativo" />
@@ -101,6 +110,7 @@
         </field>
     </record>
 
+    <!-- ================== SEARCH ====================-->
     <record id="view_protocolo_search" model="ir.ui.view">
         <field name="name">protocolo.search</field>
         <field name="model">ipma.protocolo</field>

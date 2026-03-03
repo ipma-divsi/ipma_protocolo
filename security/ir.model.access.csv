@@ -1,3 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_ipma_protocolo_user,ipma_protocolo.ipma.protocolo,model_ipma_protocolo,base.group_user,1,1,1,1
 access_ipma_import_protocolos_wizard_user,ipma_protocolo.ipma.import.protocolos.wizard,model_ipma_import_protocolos_wizard,base.group_user,1,1,1,1
+access_ipma_ata_user,ipma_protocolo.ipma.ata,model_ipma_ata,base.group_user,1,1,1,1
+access_ipma_addendum_user,ipma_protocolo.ipma.addendum,model_ipma_addendum,base.group_user,1,1,1,1
+access_ipma_ata_ldap_readonly,ipma_protocolo.ipma.ata,model_ipma_ata,ipma_protocolo.group_ldap_readonly,1,0,0,0
+access_ipma_ata_manager,ipma_protocolo.ipma.ata,model_ipma_ata,ipma_protocolo.group_protocolo_manager,1,1,1,1
+access_ipma_ata_user_ro,ipma_protocolo.ipma.ata,model_ipma_ata,ipma_protocolo.group_protocolo_user,1,0,0,0
+access_ipma_addendum_ldap_readonly,ipma_protocolo.ipma.addendum,model_ipma_addendum,ipma_protocolo.group_ldap_readonly,1,0,0,0
+access_ipma_addendum_manager,ipma_protocolo.ipma.addendum,model_ipma_addendum,ipma_protocolo.group_protocolo_manager,1,1,1,1
+access_ipma_addendum_user_ro,ipma_protocolo.ipma.addendum,model_ipma_addendum,ipma_protocolo.group_protocolo_user,1,0,0,0

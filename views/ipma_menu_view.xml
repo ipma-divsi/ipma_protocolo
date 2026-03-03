@@ -29,6 +29,18 @@
               action="action_protocolo"
               sequence="10"/>
 
+    <menuitem id="menu_ata"
+              name="Atas"
+              parent="menu_protocolo_main"
+              action="action_ata"
+              sequence="20"/>
+
+    <menuitem id="menu_addendum"
+              name="Addendums"
+              parent="menu_protocolo_main"
+              action="action_addendum"
+              sequence="30"/>
+
     <!-- Configuration Menu -->
     <menuitem id="menu_protocolo_config"
               name="Configuração"

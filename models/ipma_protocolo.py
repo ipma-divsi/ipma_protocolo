@@ -37,7 +37,11 @@ class Protocolo(models.Model):
         string='Vigência a expirar',
         compute='_compute_vigencia_prestes_expirar',
     )
+    
+    ata_ids = fields.One2many('ipma.ata', 'protocolo_id', string='Atas Relacionadas')
+    addendum_ids = fields.Many2many('ipma.addendum', 'protocolo_id', string='Addendos')
 
+    # Red Line for records with vigencia_prestes_expirar eas about to expired in 1 month tree view
     @api.depends('data_vigencia')
     def _compute_vigencia_prestes_expirar(self):
         today = fields.Date.context_today(self)

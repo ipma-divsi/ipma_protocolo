@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ADDENDUM ACTIONS -->
+    <record id="action_addendum" model="ir.actions.act_window">
+        <field name="name">Addendums</field>
+        <field name="res_model">ipma.addendum</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Criar o primeiro addendum
+            </p>
+        </field>
+    </record>
+
+    <!-- ADDENDUM TREE VIEW -->
+    <record id="view_addendum_tree" model="ir.ui.view">
+        <field name="name">ipma.addendum.tree</field>
+        <field name="model">ipma.addendum</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="data_assinatura"/>
+                <field name="entrada_vigor"/>
+                <field name="protocolo_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ADDENDUM FORM VIEW -->
+    <record id="view_addendum_form" model="ir.ui.view">
+        <field name="name">ipma.addendum.form</field>
+        <field name="model">ipma.addendum</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="data_assinatura"/>
+                            <field name="entrada_vigor"/>
+                        </group>
+                        <group>
+                            <field name="data_vigencia"/>
+                            <field name="periodo_vigencia"/>
+                            <field name="protocolo_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="observacoes" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
