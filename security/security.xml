@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Security Rules for IPMA Protocolos -->
+    
+    <!-- Protocol Model Security Rules -->
+    <record id="ipma_protocolo_company_rule" model="ir.rule">
+        <field name="name">Protocol - Company Rule</field>
+        <field name="model_id" ref="model_ipma_protocolo"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <!-- Ata Model Security Rules -->
+    <record id="ipma_ata_company_rule" model="ir.rule">
+        <field name="name">Ata - Company Rule</field>
+        <field name="model_id" ref="model_ipma_ata"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <!-- Addendum Model Security Rules -->
+    <record id="ipma_addendum_company_rule" model="ir.rule">
+        <field name="name">Addendum - Company Rule</field>
+        <field name="model_id" ref="model_ipma_addendum"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+</odoo>

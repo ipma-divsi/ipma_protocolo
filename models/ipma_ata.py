@@ -14,4 +14,4 @@ class Ata(models.Model):
     periodo_vigencia = fields.Char(string='Período de Vigência')
     observacoes = fields.Text(string='Observações')
     
-    protocolo_id = fields.Many2one('ipma.protocolo', string='Protocolo Relacionado')
+    protocolo_id = fields.Many2one('ipma.protocolo', string='Protocolo')

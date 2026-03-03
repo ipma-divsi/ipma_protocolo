@@ -19,6 +19,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="protocolo_id" readonly="1"/>
                 <field name="data_assinatura"/>
                 <field name="entrada_vigor"/>
                 <field name="protocolo_id"/>
@@ -36,6 +37,7 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="protocolo_id" readonly="1"/>
                             <field name="data_assinatura"/>
                             <field name="entrada_vigor"/>
                         </group>

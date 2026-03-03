@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Web Assets for IPMA Protocolos -->
+    
+    <!-- Frontend Assets -->
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!-- CSS files -->
+            <!-- <link rel="stylesheet" href="/ipma_protocolo/static/src/css/ipma_protocolo.css"/> -->
+        </xpath>
+    </template>
+
+    <!-- JavaScript Assets -->
+    <template id="web_assets_js" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!-- JS files -->
+            <!-- <script type="text/javascript" src="/ipma_protocolo/static/src/js/ipma_protocolo.js"></script> -->
+        </xpath>
+    </template>
+
+</odoo>
