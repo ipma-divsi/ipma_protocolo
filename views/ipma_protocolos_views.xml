@@ -60,14 +60,31 @@
                             </group>
                         </page>
                         <page string="Adendas">
-                            <group>
-                                <field name="addendum_ids" widget="many2many_tags"/>
-                            </group>
+
+                            <field name="addendum_ids" mode="tree">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="protocolo_id"/>
+                                    <field name="data_assinatura"/>
+                                    <field name="entrada_vigor"/>
+                                    <field name="data_vigencia"/>
+                                    <field name="periodo_vigencia"/>
+                                    <field name="observacoes"/>
+                                </tree>
+                            </field>
                         </page>
                         <page string="Atas">
-                            <group>
-                                <field name="ata_ids" />
-                            </group>
+                            <field name="ata_ids" mode="tree">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="protocolo_id"/>    
+                                    <field name="data_assinatura"/>
+                                    <field name="entrada_vigor"/>
+                                    <field name="data_vigencia"/>
+                                    <field name="periodo_vigencia"/>
+                                    <field name="observacoes"/>
+                                </tree>
+                            </field>
                         </page>
                         <page string="Anexos">
                             <group>
@@ -125,7 +142,7 @@
                 <field name="ambito_geografico" filter_domain="[('ambito_geografico', 'ilike', self)]"/>
                 <field name="ponto_focal_ipma_nome" filter_domain="[('ponto_focal_ipma_nome', 'ilike', self)]"/>
                 <field name="ponto_focal_parceiros_nome" filter_domain="[('ponto_focal_parceiros_nome', 'ilike', self)]"/>
-                
+
                 <!-- Filters -->
                 <separator/>
                 <filter string="Ativos" name="filter_ativo" domain="[('ativo', '=', True)]"/>
@@ -134,22 +151,17 @@
                 <filter string="Com Obrigações Financeiras" name="filter_obrigacoes" domain="[('obrigacoes_financeiras', '!=', False)]"/>
                 <filter string="Com Valor" name="filter_valor" domain="[('valor', '>', 0)]"/>
                 <separator/>
-                <filter string="Assinados Este Mês" name="filter_mes_corrente" 
-                        domain="[('data_assinatura', '&gt;=', (context_today() - relativedelta(day=1)).strftime('%Y-%m-%d')),
+                <filter string="Assinados Este Mês" name="filter_mes_corrente" domain="[('data_assinatura', '&gt;=', (context_today() - relativedelta(day=1)).strftime('%Y-%m-%d')),
                                  ('data_assinatura', '&lt;=', (context_today() + relativedelta(day=31)).strftime('%Y-%m-%d'))]"/>
-                <filter string="Assinados Este Ano" name="filter_ano_corrente" 
-                        domain="[('data_assinatura', '&gt;=', (context_today() - relativedelta(month=1, day=1)).strftime('%Y-%m-%d')),
+                <filter string="Assinados Este Ano" name="filter_ano_corrente" domain="[('data_assinatura', '&gt;=', (context_today() - relativedelta(month=1, day=1)).strftime('%Y-%m-%d')),
                                  ('data_assinatura', '&lt;=', (context_today() + relativedelta(month=12, day=31)).strftime('%Y-%m-%d'))]"/>
                 <separator/>
-                <filter string="Em Vigor" name="filter_em_vigor" 
-                        domain="[('entrada_vigor', '&lt;=', context_today().strftime('%Y-%m-%d')),
+                <filter string="Em Vigor" name="filter_em_vigor" domain="[('entrada_vigor', '&lt;=', context_today().strftime('%Y-%m-%d')),
                                  '|', ('data_vigencia', '=', False), ('data_vigencia', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
-                <filter string="Vigência Expirada" name="filter_vigencia_expirada" 
-                    domain="[('data_vigencia', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
-                <filter string="Vigência a Expirar (1 mês)" name="filter_vigencia_a_expirar" 
-                    domain="[('data_vigencia', '&gt;=', context_today().strftime('%Y-%m-%d')),
+                <filter string="Vigência Expirada" name="filter_vigencia_expirada" domain="[('data_vigencia', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Vigência a Expirar (1 mês)" name="filter_vigencia_a_expirar" domain="[('data_vigencia', '&gt;=', context_today().strftime('%Y-%m-%d')),
                          ('data_vigencia', '&lt;=', (context_today() + relativedelta(months=1)).strftime('%Y-%m-%d'))]"/>
-                
+
                 <!-- Group By -->
                 <group expand="0" string="Agrupar Por">
                     <filter string="Tipo de Documento" name="group_tipo_documento" context="{'group_by': 'tipo_documento'}"/>

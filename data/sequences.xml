@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Sequences for IPMA Protocolos Module -->
+    
+    <!-- Protocol Sequence -->
+    <record id="seq_ipma_protocolo" model="ir.sequence">
+        <field name="name">IPMA Protocolo Sequence</field>
+        <field name="code">ipma.protocolo</field>
+        <field name="prefix">PROTO-%(yyyy)s-</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="padding">5</field>
+    </record>
+
+    <!-- Ata Sequence -->
+    <record id="seq_ipma_ata" model="ir.sequence">
+        <field name="name">IPMA Ata Sequence</field>
+        <field name="code">ipma.ata</field>
+        <field name="prefix">ATA-%(yyyy)s-</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="padding">4</field>
+    </record>
+
+    <!-- Addendum Sequence -->
+    <record id="seq_ipma_addendum" model="ir.sequence">
+        <field name="name">IPMA Addendum Sequence</field>
+        <field name="code">ipma.addendum</field>
+        <field name="prefix">ADD-%(yyyy)s-</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="padding">4</field>
+    </record>
+
+</odoo>

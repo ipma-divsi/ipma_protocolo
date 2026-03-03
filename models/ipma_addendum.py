@@ -16,5 +16,5 @@ class Addendum(models.Model):
     observacoes = fields.Text(string='Observações')
     
     
-    protocolo_id = fields.Many2one('ipma.protocolo', string='Protocolos Relacionados')
+    protocolo_id = fields.Many2one('ipma.protocolo', string='Protocolo')
  
