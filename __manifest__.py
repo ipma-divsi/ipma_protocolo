@@ -49,5 +49,5 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-    'images': ['static/description/Banner.png'],
+    'icon': 'ipma_protocolo/static/description/Banner.png',
 }
