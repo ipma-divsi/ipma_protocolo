@@ -34,4 +34,7 @@
               name="Configuração"
               parent="menu_protocolo_root"
               sequence="100"/>
+
+    <!-- Protocol Import Menu -->
+    <menuitem id="menu_protocolo_import" name="Importar Protocolos" parent="menu_protocolo_root" action="action_ipma_import_protocolos_wizard" groups="ipma_protocolo.group_protocolo_manager"/>
 </odoo>

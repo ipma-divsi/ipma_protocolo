@@ -26,5 +26,5 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem id="menu_protocolo_import" name="Importar Protocolos" parent="menu_protocolo_root" action="action_ipma_import_protocolos_wizard"/>
+    
 </odoo>

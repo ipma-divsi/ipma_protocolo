@@ -21,12 +21,7 @@
         
         # Data
         'data/groups.xml',
-        # 'data/sequences.xml',
-        # 'data/equipment_categories.xml',
-        # 'data/mail_templates.xml',  
-        # 'data/cron_jobs.xml',
-        # 'data/report_paperformat.xml',
-        
+
         # Views
         'views/ipma_protocolos_views.xml',
         'views/ipma_menu_view.xml',
